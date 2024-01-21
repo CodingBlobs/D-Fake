@@ -6,3 +6,4 @@ tensorflow-docs>=0.0.0
 matplotlib==3.8.2
 opencv-python-headless==4.9.0.80
 plotly==5.18.0
+flask_cors==4.0.0
