@@ -36,10 +36,17 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration:none;
 }
 .transparent-button:hover{
     background-color:#243770;
 }
+
+.transparent-button a{
+    color:inherit;
+    text-decoration:none;
+}
+
 .buttontext{
     font-family:'Poppins';
     color:#4b5f9f;
@@ -48,11 +55,11 @@
     letter-spacing:0.5px;
 }
 .section{
-    height: 100vh;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #858ab9;
+    background-color: #2c2c2c;
 }
 
 </style>
@@ -86,109 +93,24 @@
     <button type="button" class="transparent-button" style="position:relative;top:-141px;left:825px;object-fit:cover;"><a href="#videosection">&#x27F6</a></button>
     
     <section id="imagesection" class="section">
-        <h6 style=" font-size:40px;color:#060b3c;font-weight:bold;padding-bottom:10%;text-align:center;">Input your IMAGE for authenticity verification.</h6>
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-            <label for="imageUpload">Choose an image:</label>
-            <input type="file" name="imageUpload" id="imageUpload" accept="image/png,image/jpeg">
+        <h6 style=" font-size:40px;color:#e8e8e8;font-weight:bold;padding-bottom:20%;text-align:center;">Input your IMAGE for authenticity verification.</h6>
+        <form action="upload.php" method="post" enctype="multipart/form-data" style="align-items:center">
+            <label for="imageUpload" style="color:white">Choose an image:</label>
+            <input type="file" name="imageUpload" id="imageUpload" style="color:white" accept="image/png,image/jpeg">
             <button type="submit">Upload and Process</button>
         </form>
     </section>
 
     <section id="videosection" class="section">
-        <h6 style=" font-size:40px;color:#060b3c;font-weight:bold;padding-bottom:10%;text-align:center;">Input your VIDEO for authenticity verification.</h6>
+        <h6 style=" font-size:40px;color:#e8e8e8;font-weight:bold;padding-bottom:10%;text-align:center;">Input your VIDEO for authenticity verification.</h6>
         <form action="upload_video.php" method="post" enctype="multipart/form-data">
-            <label for="videoUpload">Choose a video:</label>
-            <input type="file" name="videoUpload" id="videoUpload" accept="video/*">
+            <label for="videoUpload" style="color:white">Choose a video:</label>
+            <input type="file" name="videoUpload" id="videoUpload" style="color:white" accept="video/*">
             <button type="submit">Upload and Process</button>
         </form>
     </section>
 
 
 </body>
-
-<!--
-    <div class="container">
-        <div class="card px-3 py-2 my-3">
-            <div class="row">
-                <h2 class="mt-n2">Upload your NFT</h2>
-                <p class="mb-n5">
-                    {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                        <ul>
-                        {% for message in messages %}
-                        <strong class="text-danger">{{ message }}</strong>
-                        {% endfor %}
-                        </ul>
-                    {% endif %}
-                    {% endwith %}
-                </p>
-                <meta id="imageData" data-name="{{image_base64}}" data-other="{{image_base64}}">
-                <div id="hasUploaded1" class="mb-3">
-                    {% if image_base64 %}
-                        <div id="uploadedImage">
-                            <img src="data:image/png;base64,{{image_base64}}" alt="Uploaded Image">
-                        </div>
-                    {% endif %}
-                </div>
-                <form class="mb-2" name="upload" method="post" action="/" enctype="multipart/form-data">
-                    <dl>
-                        <p>
-                            <input type="file" name="file" class="form-control" autocomplete="off" required onchange="document.upload.submit()">
-                        </p>
-                    </dl>
-                </form>
-                <div id="hasUploaded2" >
-                    {% if image_base64 %}
-                        <p >
-                            <input type="submit" style="width: 100%;" value="Submit" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target="#loadingModal" onclick="upload_image('{{image_base64}}')">
-                        </p>
-                    {% endif %}
-                </div>
-                <div id="predictedImage" class=""> </div>
-            
-            </div>
-            <div id="loadingModal" class="modal" style="position: absolute; top: 50%; left: 50%; margin: -25px 0 0 -25px;">
-                <div class="spinner-border text-danger" role="status" />
-            </div>
-        </div>
-        <i>Crafted for CS4225 project.</i>
-    </div>
--->
-
-<!--
-    For line breaks:
-    <p>This is a <br> paragraph with a line break.</p>
-
-    To edit font sizes:
-    <h1 style="font-size:60px;">Heading 1</h1>
-
-    To edit font colours:
-    <p style="color:red;">I am red</p>
-
-    To choose fonts:
-    <p style="font-family:courier;">This is a paragraph.</p>
-
-    To insert images or gifs maybe cute robot or blob that we design if the images are in a sub-folder:
-    <img src="/images/html5.gif" style="width:128px;height:128px;">
-
-
-            <head>
-        <style>
-        .city {
-        background-color: tomato;
-        color: white;
-        border: 2px solid black;
-        margin: 20px;
-        padding: 20px;
-        }
-        </style>
-        </head>
-        <body>
-
-        <div class="city">
-        <h2>London</h2>
-        <p>London is the capital of England.</p>
-        </div>
--->
 
 </html>
