@@ -1,0 +1,8 @@
+numpy==1.26.3
+pandas==2.2.0
+flask==3.0.1
+tensorflow==2.15.0
+tensorflow-docs>=0.0.0
+matplotlib==3.8.2
+opencv-python-headless==4.9.0.80
+plotly==5.18.0
