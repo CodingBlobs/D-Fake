@@ -16,13 +16,22 @@ from tensorflow_docs.vis import embed
 import numpy as np
 import cv2
 
-from .constants import *
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 CORS(app)
 
 rootdir = os.getcwd()
+
+# ML Constants
+IMG_SIZE = 224
+BATCH_SIZE = 64
+EPOCHS = 200
+MAX_SEQ_LENGTH = 20
+NUM_FEATURES = 2048
 UPLOAD_FOLDER = 'static/uploads/'
+
+# Configurations
 app.secret_key = "secret key"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -101,10 +110,34 @@ def predict(video_path: str) -> bool:
 def index():
     return render_template('hacknroll24.html')
 
+def allowed_file(filename, extensions):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in extensions
 
-@app.route('/save-video' , methods = ['POST', 'GET'])
-def change_home_wallpaper():
-    return redirect("/")
+
+@app.route('/verify-video', methods=['POST'])
+def verify_video():
+    if 'video' not in request.files:
+        flash('No video file found')
+        return redirect(request.url)
+    
+    video = request.files['video']
+    
+    if video.filename == '':
+        flash('No selected video file')
+        return redirect(request.url)
+    
+    if video and allowed_file(video.filename, VIDEO_EXTENSIONS):
+        filename = secure_filename(video.filename)
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        print(f"Filepath = {filepath}")
+        video.save(filepath)
+        
+        result = predict(filepath)
+        
+        return jsonify({'result': result})
+    
+    flash('Invalid file format')
+    return redirect(request.url)
 
 
 if __name__ == '__main__':
