@@ -26,6 +26,18 @@
 └── requirements.txt
 ```
 
+## Getting Started
+```shell
+# virtual env
+python3.10 -m venv env
+source env/bin/activate
+
+# install requirements
+pip install -r "requirements"
+
+# run flask app
+python app.py
+```
 
 ## Reference
 
