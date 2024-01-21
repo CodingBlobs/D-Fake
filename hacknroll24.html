@@ -47,6 +47,13 @@
     text-align:center;
     letter-spacing:0.5px;
 }
+.section{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #858ab9;
+}
 
 </style>
 </head>
@@ -55,11 +62,11 @@
     <br>
     <!-- Project Title and Description -->
     <div class="projectname">
-        <h1><span style="font-size:100px; border-width:0.4px; border-style:solid; border-color:#0014ef; padding-top:4px; padding-bottom:4px; padding-left: 200px; padding-right: 200px;"><b>D-FAKE</b></h1>
+        <h1><span style="font-size:100px; border-width:0.4px; border-style:solid; border-color:#0014ef; padding-top:4px; padding-bottom:4px; padding-left: 200px; padding-right: 200px;"><b>D-FAKE</b></span></h1>
     </div>
 
     <div class="projectdesc">
-        <h6><span style="font-size:20px; margin-top:5px; margin-bottom:5px;">Harnessing AI for Deepfake Detection</h6>
+        <h6><span style="font-size:20px; margin-top:5px; margin-bottom:5px;">Harnessing AI for Deepfake Detection</span></h6>
     </div>
 
     <!-- Blob Image -->
@@ -68,18 +75,37 @@
     
     <!-- Image Authenticity Button -->
     <div class="buttontext">
-        <p><span style="position:relative;top:-80px;left:-22px;border:solid;border-width:2px;border-color:#4b5f9f;padding:10px;">Verify image authenticity</p>
+        <p><span style="position:relative;top:-80px;left:-22px;border:solid;border-width:2px;border-color:#4b5f9f;padding:10px;">Verify image authenticity</span></p>
     </div>
-    <button type="button" class="transparent-button" style="position:relative;top:-132px;left:825px;object-fit:cover;">&#x27F6</button>
-    </div>  
+    <button type="button" class="transparent-button" style="position:relative;top:-132px;left:825px;object-fit:cover;"><a href="#imagesection">&#x27F6</a></button>  
 
     <!-- Video Authenticity Button -->
     <div class="buttontext">
-        <p><span style="position:relative;top:-90px;left:-21px;border:solid;border-width:2px;border-color:#4b5f9f;padding:10px;">Verify video authenticity</p>
+        <p><span style="position:relative;top:-90px;left:-21px;border:solid;border-width:2px;border-color:#4b5f9f;padding:10px;">Verify video authenticity</span></p>
     </div>
-    <button type="button" class="transparent-button" style="position:relative;top:-141px;left:825px;object-fit:cover;">&#x27F6</button>
-    </div>  
+    <button type="button" class="transparent-button" style="position:relative;top:-141px;left:825px;object-fit:cover;"><a href="#videosection">&#x27F6</a></button>
+    
+    <section id="imagesection" class="section">
+        <h6 style=" font-size:40px;color:#060b3c;font-weight:bold;padding-bottom:10%;text-align:center;">Input your IMAGE for authenticity verification.</h6>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <label for="imageUpload">Choose an image:</label>
+            <input type="file" name="imageUpload" id="imageUpload" accept="image/png,image/jpeg">
+            <button type="submit">Upload and Process</button>
+        </form>
+    </section>
+
+    <section id="videosection" class="section">
+        <h6 style=" font-size:40px;color:#060b3c;font-weight:bold;padding-bottom:10%;text-align:center;">Input your VIDEO for authenticity verification.</h6>
+        <form action="upload_video.php" method="post" enctype="multipart/form-data">
+            <label for="videoUpload">Choose a video:</label>
+            <input type="file" name="videoUpload" id="videoUpload" accept="video/*">
+            <button type="submit">Upload and Process</button>
+        </form>
+    </section>
+
+
 </body>
+
 <!--
     <div class="container">
         <div class="card px-3 py-2 my-3">
