@@ -1,7 +1,10 @@
-const post_url = `${window.location.href}/api/estimate`
+async function upload_video(video) {
+    console.log("Upload and verify video!");
+    
+}
 
 async function upload_image(image) {
-    console.log("Upload and classify called!");
+    console.log("Upload and verify image!");
     const data = await fetch('api/estimate', {
         method: 'POST',
         body: JSON.stringify({"image_b64": image}),
