@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<head>
+    <title>CyberSleuth</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="static/script.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+.projectname {
+    font-family:'Poppins';
+    color:#0014ef; 
+    font-weight:900;
+    text-align:center;
+    padding-top:10%; 
+    padding-bottom:2%;
+    letter-spacing:2px; 
+}
+.projectdesc{
+    font-family:'Poppins';
+    color:#cbc1c1ce;
+    font-weight:200;
+    text-align:center;
+    letter-spacing:5px;
+}
+.transparent-button{
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #4b5f9f;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.transparent-button:hover{
+    background-color:#243770;
+}
+.buttontext{
+    font-family:'Poppins';
+    color:#4b5f9f;
+    font-size:16px;
+    text-align:center;
+    letter-spacing:0.5px;
+}
+
+</style>
+</head>
+
+<body style="background-color: #000000;">
+    <br>
+    <!-- Project Title and Description -->
+    <div class="projectname">
+        <h1><span style="font-size:100px; border-width:0.4px; border-style:solid; border-color:#0014ef; padding-top:4px; padding-bottom:4px; padding-left: 200px; padding-right: 200px;"><b>D-FAKE</b></h1>
+    </div>
+
+    <div class="projectdesc">
+        <h6><span style="font-size:20px; margin-top:5px; margin-bottom:5px;">Harnessing AI for Deepfake Detection</h6>
+    </div>
+
+    <!-- Blob Image -->
+    <img src="img/headerblob.png" style="width:128px;height:128px;position:relative;top:-120px;left:1050px;object-fit:cover;z-index:10;">
+    <img src="img/flatblob.png" style="width:180px;height:180px;position:relative;top:-300px;left:130px;object-fit:cover;z-index:10;">
+    
+    <!-- Image Authenticity Button -->
+    <div class="buttontext">
+        <p><span style="position:relative;top:-80px;left:-22px;border:solid;border-width:2px;border-color:#4b5f9f;padding:10px;">Verify image authenticity</p>
+    </div>
+    <button type="button" class="transparent-button" style="position:relative;top:-132px;left:825px;object-fit:cover;">&#x27F6</button>
+    </div>  
+
+    <!-- Video Authenticity Button -->
+    <div class="buttontext">
+        <p><span style="position:relative;top:-90px;left:-21px;border:solid;border-width:2px;border-color:#4b5f9f;padding:10px;">Verify video authenticity</p>
+    </div>
+    <button type="button" class="transparent-button" style="position:relative;top:-141px;left:825px;object-fit:cover;">&#x27F6</button>
+    </div>  
+</body>
+<!--
+    <div class="container">
+        <div class="card px-3 py-2 my-3">
+            <div class="row">
+                <h2 class="mt-n2">Upload your NFT</h2>
+                <p class="mb-n5">
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul>
+                        {% for message in messages %}
+                        <strong class="text-danger">{{ message }}</strong>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {% endwith %}
+                </p>
+                <meta id="imageData" data-name="{{image_base64}}" data-other="{{image_base64}}">
+                <div id="hasUploaded1" class="mb-3">
+                    {% if image_base64 %}
+                        <div id="uploadedImage">
+                            <img src="data:image/png;base64,{{image_base64}}" alt="Uploaded Image">
+                        </div>
+                    {% endif %}
+                </div>
+                <form class="mb-2" name="upload" method="post" action="/" enctype="multipart/form-data">
+                    <dl>
+                        <p>
+                            <input type="file" name="file" class="form-control" autocomplete="off" required onchange="document.upload.submit()">
+                        </p>
+                    </dl>
+                </form>
+                <div id="hasUploaded2" >
+                    {% if image_base64 %}
+                        <p >
+                            <input type="submit" style="width: 100%;" value="Submit" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target="#loadingModal" onclick="upload_image('{{image_base64}}')">
+                        </p>
+                    {% endif %}
+                </div>
+                <div id="predictedImage" class=""> </div>
+            
+            </div>
+            <div id="loadingModal" class="modal" style="position: absolute; top: 50%; left: 50%; margin: -25px 0 0 -25px;">
+                <div class="spinner-border text-danger" role="status" />
+            </div>
+        </div>
+        <i>Crafted for CS4225 project.</i>
+    </div>
+-->
+
+<!--
+    For line breaks:
+    <p>This is a <br> paragraph with a line break.</p>
+
+    To edit font sizes:
+    <h1 style="font-size:60px;">Heading 1</h1>
+
+    To edit font colours:
+    <p style="color:red;">I am red</p>
+
+    To choose fonts:
+    <p style="font-family:courier;">This is a paragraph.</p>
+
+    To insert images or gifs maybe cute robot or blob that we design if the images are in a sub-folder:
+    <img src="/images/html5.gif" style="width:128px;height:128px;">
+
+
+            <head>
+        <style>
+        .city {
+        background-color: tomato;
+        color: white;
+        border: 2px solid black;
+        margin: 20px;
+        padding: 20px;
+        }
+        </style>
+        </head>
+        <body>
+
+        <div class="city">
+        <h2>London</h2>
+        <p>London is the capital of England.</p>
+        </div>
+-->
+
+</html>
