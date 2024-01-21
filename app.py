@@ -139,6 +139,11 @@ def verify_video():
     flash('Invalid file format')
     return redirect(request.url)
 
+@app.route('/test-video', methods=['POST'])
+def test_video():
+    print("Request: ", request)
+    return redirect("/")
+
 
 if __name__ == '__main__':
     app.run(port=PORT, debug=True)
